@@ -15,6 +15,11 @@ export class MoviesService {
   getSeriesData(pageNumber = 1, language = "en-us"): Observable<any> {
     return this.https.get(`https://api.themoviedb.org/3/tv/popular?api_key=15c27499b315bb42052c1affd371cd58&language=${language}&page=${pageNumber}`);
   }
-
+  getMovieById(movieId: number, language = "en-us"): Observable<any> {
+    return this.https.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=15c27499b315bb42052c1affd371cd58&language=${language}`)
+  }
+  getShowById(showId: number, language = "en-us"): Observable<any> {
+    return this.https.get(`https://api.themoviedb.org/3/tv/${showId}?api_key=15c27499b315bb42052c1affd371cd58&language=${language}`)
+  }
 
 }

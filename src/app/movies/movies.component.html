@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-3" *ngFor="let singleMovie of searchMvoies">
       <div class="card h-50">
-        <img class="card-img-top" [src]='"https://image.tmdb.org/t/p/w500"+singleMovie.poster_path' alt="Card image">
+        <a [routerLink]="['/movies',singleMovie.id]"><img class="card-img-top"
+            [src]='"https://image.tmdb.org/t/p/w500"+singleMovie.poster_path' alt="Card image"></a>
         <div class="card-body">
           <h4 class="card-title">{{singleMovie.title}}</h4>
           <p class="card-text" *ngIf="singleMovie.isVisible">{{singleMovie.overview}}</p>

@@ -1,29 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LanguageService } from '../Services/language.service';
 import { MoviesService } from '../Services/movies.service';
+import { LanguageService } from '../Services/language.service';
+
 
 @Component({
-  selector: 'app-movie-details',
-  templateUrl: './movie-details.component.html',
-  styleUrls: ['./movie-details.component.css']
+  selector: 'app-series-details',
+  templateUrl: './series-details.component.html',
+  styleUrls: ['./series-details.component.css']
 })
-export class MovieDetailsComponent implements OnInit {
-  singleMovie: any = {};
-  currentLanuage: string = this.langServ.getLanguageString();
+export class SeriesDetailsComponent implements OnInit {
+
+
+  singleShow: any = {}
   constructor(private serv: MoviesService, private langServ: LanguageService, private router: ActivatedRoute) {
     this.langServ.getLanguage().subscribe({
       next: (lang) => {
-        this.currentLanuage = lang
-        this.update();
+        this.currentLanguage = lang;
+        this.update()
       }
     })
   }
   id: number = 0;
+  currentLanguage: string = this.langServ.getLanguageString();
+
   update(): void {
-    this.serv.getMovieById(this.id, this.currentLanuage).subscribe({
-      next: (movie) => {
-        this.singleMovie = movie
+    this.serv.getShowById(this.id, this.currentLanguage).subscribe({
+      next: (show) => {
+        this.singleShow = show
       }
     })
   }
@@ -32,5 +36,4 @@ export class MovieDetailsComponent implements OnInit {
     this.id = Number(this.router.snapshot.paramMap.get('id'))
     this.update();
   }
-
 }

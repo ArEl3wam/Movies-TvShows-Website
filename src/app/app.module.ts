@@ -13,6 +13,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SeriesComponent } from './series/series.component';
+import { SeriesDetailsComponent } from './series-details/series-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { SeriesComponent } from './series/series.component';
     RatingComponent,
     MovieDetailsComponent,
     PageNotFoundComponent,
-    SeriesComponent
+    SeriesComponent,
+    SeriesDetailsComponent
   ],
   imports: [
     BrowserModule,
