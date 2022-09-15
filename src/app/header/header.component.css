@@ -1,0 +1,10 @@
+.navbar-brand {
+  position: absolute;
+  left: 1%;
+}
+
+
+button {
+  position: absolute;
+  right: 1%;
+}

@@ -1,0 +1,22 @@
+<nav class="navbar justify-content-center bg-light ">
+  <a class="navbar-brand" href="/">Movies</a>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/movies">Movies</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/series">Series</a>
+    </li>
+
+    <li>
+      <input class="form-control mr-sm-2" type="text" placeholder="search" [(ngModel)]="searchValue">
+    </li>
+    <li>
+      <button type="button" class="btn btn-outline-dark" (click)="toggle()">{{isEnglish?"AR":"EN"}}</button>
+    </li>
+
+  </ul>
+</nav>

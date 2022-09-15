@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3" *ngFor="let singleShow of searchSeries">
+      <div class="card h-50">
+        <img class="card-img-top" [src]='"https://image.tmdb.org/t/p/w500"+singleShow.poster_path' alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title">{{singleShow.name}}</h4>
+          <p class="card-text" *ngIf="singleShow.isVisible">{{singleShow.overview}}</p>
+          <app-rating [rating]="singleShow.vote_average"></app-rating>
+          <br>
+          <button href="#" class="btn btn-primary"
+            (click)="toggleData(singleShow.id)">{{singleShow.isVisible?"Hide":"Show"}}
+            details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-paginator [length]="length" [pageSize]="pageSize" (page)="changePage($event)"></mat-paginator>
+</div>
